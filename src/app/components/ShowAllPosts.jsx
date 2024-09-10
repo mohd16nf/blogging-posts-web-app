@@ -9,9 +9,9 @@ export default async function ShowAllPosts() {
   return (
     <div className="relative xl:left-48 top-20 left-0 xl:w-[1000px] w-full mx-auto p-4">
       <h1 className="text-3xl font-bold mb-8 text-center text-orange-900">All the Posts</h1>
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 w-full">
         {posts.map((post) => (
-          <div key={post._id} className="p-2 border border-gray-200 rounded-lg xl:w-[420px] w-[320px] shadow-lg bg-white flex flex-col items-center">
+          <div key={post._id} className="p-5 border border-gray-200 rounded-lg shadow-lg bg-white flex flex-col items-center">
             {post.postImg && (
               <div className="relative overflow-hidden rounded-lg">
                 <Image
