@@ -1,4 +1,3 @@
-// src/app/notes/page.tsx
 import { fetchPosts, updateComments, updateLikes } from "@/serverActions/noteActions";
 import Image from "next/image";
 import { FaHeart, FaComment } from "react-icons/fa";
@@ -11,26 +10,27 @@ export default async function ShowAllPosts() {
       <h1 className="text-3xl font-bold mb-8 text-center text-orange-900">All the Posts</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-8">
         {posts.map((post) => (
-          <div key={post._id} className="p-5 border border-gray-200 rounded-lg shadow-lg bg-white flex flex-col items-center">
+          <div key={post._id} className="p-5 border border-gray-200 rounded-lg shadow-lg bg-white flex flex-col items-center w-[400px]">
             {post.postImg && (
               <div className="relative overflow-hidden rounded-lg">
                 <Image
                   src={post.postImg}
                   alt="Error loading Image"
                   className={`transform transition-transform duration-300 ease-in-out hover:scale-105 
-                              w-[400px] h-[400px] xl:w-auto xl:h-auto`}
-                  width={300} // this value is ignored when className is setting the width
-                  height={300} // this value is ignored when className is setting the height
+                              w-[350px] h-[350px] xl:w-[400px] xl:h-[400px] object-cover`}
+                  width={400}
+                  height={400}
                 />
               </div>
             )}
-            <div className="flex justify-between w-full mt-4 mb-10">
-              <h4 className="text-lg font-semibold text-green-800 xl:ml-6">{post.username}</h4>
-              <span className="text-sm text-gray-500 mr-6">{new Date(post.createdAt).toLocaleDateString()}</span>
+            <div className="flex justify-between w-full mt-4 mb-4">
+              <h4 className="text-lg font-semibold text-green-800">{post.username}</h4>
+              <span className="text-sm text-gray-500">{new Date(post.createdAt).toLocaleDateString()}</span>
             </div>
-            <div className="flex justify-between items-center w-full mt-6">
-              {/* Likes */}
-              <form action={updateLikes} className="flex items-center xl:ml-6">
+
+            {/* Likes and Comments */}
+            <div className="flex justify-between items-center w-full">
+              <form action={updateLikes} className="flex items-center">
                 <input type="hidden" name="postId" value={post.id} />
                 <button
                   type="submit"
@@ -40,8 +40,7 @@ export default async function ShowAllPosts() {
                   {post.likes}
                 </button>
               </form>
-              {/* Comments */}
-              <form className="flex items-start xl:pr-6" action={updateComments}>
+              <form action={updateComments} className="flex items-start">
                 <input type="hidden" name="postId" value={post.id.toString()} />
                 <div className="flex items-start">
                   <input
@@ -57,7 +56,8 @@ export default async function ShowAllPosts() {
               </form>
             </div>
 
-            <div className="mt-4 w-full xl:px-6">
+            {/* Comments Section */}
+            <div className="mt-4 w-full">
               {post.comments && post.comments.length > 0 ? (
                 post.comments.map((commentObj, index) => (
                   <div key={index} className="bg-gray-100 p-2 rounded-lg mb-2">
