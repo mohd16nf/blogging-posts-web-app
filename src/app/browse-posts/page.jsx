@@ -6,7 +6,7 @@ export default async function PostsPage() {
     <>
       <div className="flex flex-col lg:flex-row mb-10">
         {/* Form Section */}
-        <div className="xl:fixed left-0 top-40 relative p-6 rounded bg-white text-green-800 shadow-md w-full lg:w-1/4 h-auto lg:h-full lg:overflow-auto z-10" id="addnote-form">
+        <div className="xl:fixed left-0 xl:top-40 relative lg:top-40 top-16 p-6 rounded bg-white text-green-800 shadow-md w-auto lg:w-1/4 h-auto lx:h-auto lg:overflow-auto xl:z-10 z-5" id="addnote-form">
           <h1 className="text-2xl font-bold text-center text-orange-900 mb-6">Create a Post</h1>
           <form action={addPost}>
             <div className="mb-4">

@@ -8,16 +8,16 @@ export default async function ShowAllPosts() {
   return (
     <div className="relative top-20 xl:left-20 left-0 xl:w-[1000px] w-full mx-auto p-4">
       <h1 className="text-3xl font-bold mb-8 text-center text-orange-900">All the Posts</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 xl:gap-10 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 xl:gap-10 gap-4 justify-items-center">
         {posts.map((post) => (
-          <div key={post._id} className="p-5 border border-gray-200 rounded-lg shadow-lg bg-white flex flex-col items-center xl:w-[400px] w-[360px] ">
+          <div key={post._id} className="p-5 border border-gray-200 rounded-lg shadow-lg bg-white flex flex-col items-center xl:w-[400px] sm:w-[360px] w-[320px] ">
             {post.postImg && (
               <div className="relative overflow-hidden rounded-lg">
                 <Image
                   src={post.postImg}
                   alt="Error loading Image"
                   className={`transform transition-transform duration-300 ease-in-out hover:scale-105 
-                              w-[350px] h-[350px] xl:w-[400px] xl:h-[400px] object-cover`}
+                             w-[320px] h-[320px] sm:w-[350px] sm:h-[350px] xl:w-[400px] xl:h-[400px] object-cover`}
                   width={400}
                   height={400}
                 />
