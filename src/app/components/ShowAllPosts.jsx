@@ -6,11 +6,11 @@ export default async function ShowAllPosts() {
   const posts = await fetchPosts();
 
   return (
-    <div className="relative top-20 xl:left-48 left-0 xl:w-[1000px] w-full mx-auto p-4">
+    <div className="relative top-20 xl:left-20 left-0 xl:w-[1000px] w-full mx-auto p-4">
       <h1 className="text-3xl font-bold mb-8 text-center text-orange-900">All the Posts</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 xl:gap-10 gap-4">
         {posts.map((post) => (
-          <div key={post._id} className="p-5 border border-gray-200 rounded-lg shadow-lg bg-white flex flex-col items-center w-[400px]">
+          <div key={post._id} className="p-5 border border-gray-200 rounded-lg shadow-lg bg-white flex flex-col items-center xl:w-[400px] w-[360px] ">
             {post.postImg && (
               <div className="relative overflow-hidden rounded-lg">
                 <Image
